@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from '../product/product.model';
+import { ProductService } from '../product/product.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -7,9 +12,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductEditComponent implements OnInit {
 
-  constructor() { }
+	@Input() "product": Product;
 
-  ngOnInit(): void {
-  }
+	constructor(private route: ActivatedRoute, private productService: ProductService, private location: Location) { }
+
+	ngOnInit() {
+		this.getProduct();
+	}
+
+	getProduct(): void {
+		const id = this.route.snapshot.paramMap.get('id');
+		this.productService.getProduct('id').subscribe(product => this.product = product);
+	}
+
+	save(): void {
+		this.productService.updateProduct(this.product).subscribe(success=> {this.goBack();});
+	}
+
+	goBack(): void {
+		this.location.back();
+	}
 
 }

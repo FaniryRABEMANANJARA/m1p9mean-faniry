@@ -79,7 +79,7 @@
                             <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input type="text" name="nom" #name="ngModel" [(ngModel)]="userService.selectedUser.nom" placeholder="" required>
+                                        <input type="text" name="nom" #name="ngModel" [(ngModel)]="userService.selectedUser.fullName" placeholder="" required>
                                         <label>Nom :
                       <label class="red-text">*</label>
                                         </label>
@@ -102,7 +102,7 @@
                                     </tr>
                                 </thead>
                                 <tr *ngFor="let use of userService.users">
-                                    <td>{{use.nom}}</td>
+                                    <td>{{use.fullName}}</td>
                                     <td>
                                         <a class="action-btn" (click)="onEdit(use)">
                                             <i class="material-icons">edit</i>
@@ -126,4 +126,3 @@
 </body>
 
 </html>
-<router-outlet></router-outlet>

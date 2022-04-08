@@ -28,7 +28,10 @@ export class UserComponent implements OnInit {
       form.reset();
     this.userService.selectedUser = {
       _id: "",
-      nom: ""
+      fullName: "",
+      email:"",
+      password:"",
+      argent:""
     }
   }
 
