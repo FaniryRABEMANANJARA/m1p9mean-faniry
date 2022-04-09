@@ -3,15 +3,14 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { User } from './user.model';
-
-
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class InscriptionService {
 
   private  baseURL = 'http://localhost:3000';
 
@@ -21,5 +20,6 @@ export class UserService {
     console.log(user);
       return this.http.post(this.baseURL + '/addUser', user, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
     }
+
 
 }

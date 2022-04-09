@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Location } from '@angular/common';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from 'src/app/shared/user.service';
+import { User } from 'src/app/shared/user.model';
 
 @Component({
   selector: 'app-inscription',
@@ -6,10 +10,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
+		@Input() user: User = { fullName: '', email: '', password: '', argent: '' };
 
-  constructor() { }
+  constructor(private userService: UserService, private location: Location) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
+  save(): void {
+		this.userService.addUser(this.user).subscribe(() => this.goBack());
+	}
+	goBack(): void {
+		this.location.back();
+	}
 
 }

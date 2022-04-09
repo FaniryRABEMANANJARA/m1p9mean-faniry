@@ -2,7 +2,7 @@ const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
 var { User } = require('../models/users');
-
+/*
 router.get('/', (req, res) => {
     User.find((err, docs) => {
         if (!err) { res.send(docs); } else { console.log('Error in Retriving Employees :' + JSON.stringify(err, undefined, 2)); }
@@ -20,18 +20,24 @@ router.get('/:id', (req, res) => {
 */
 router.post('/', (req, res) => {
     var user = new User({
-        nom: req.body.nom
-    }); ///parametre 'user'
+        fullName: req.body.fullName,
+        email: req.body.email,
+        password: req.body.password,
+        argent: req.body.argent
+    });
     user.save((err, doc) => {
-        if (!err) { res.send(doc); } else { console.log('Tsy nety le save oh!!!' + JSON.stringify(err, undefined, 2)); }
+        if (!err) { res.send(doc); } else { console.log('not save!!!' + JSON.stringify(err, undefined, 2)); }
     });
 });
-
+/*
 router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`Tsy enregistrer oh!!! : ${req.params.id}`);
     var use = {
-        nom: req.body.nom,
+        fullName: req.body.fullName,
+        email: req.body.email,
+        password: req.body.password,
+        argent: req.body.argent,
     };
 
     User.findByIdAndUpdate(req.params.id, { $set: use }, { new: true }, (err, doc) => {
@@ -49,5 +55,5 @@ router.delete('/:id', (req, res) => {
 
     });
 });
-
+*/
 module.exports = router;

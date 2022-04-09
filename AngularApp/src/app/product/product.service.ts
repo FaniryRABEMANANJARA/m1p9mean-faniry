@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class ProductService {
 
-  private productUrl = 'http://localhost:4200';  // Base URL to REST API
+  private productUrl = 'http://localhost:3000';  // Base URL to REST API
 
   constructor(private http: HttpClient) { }
 
@@ -31,8 +31,8 @@ export class ProductService {
 
   /** POST: add a new product to the server */
   addProduct(product: Product) {
-	//console.log(product);
-    return this.http.post(this.productUrl + '/product', product, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
+	console.log(product);
+    return this.http.post(this.productUrl + '/addProduct', product, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
   }
 
   /** PUT: update the product on the server */

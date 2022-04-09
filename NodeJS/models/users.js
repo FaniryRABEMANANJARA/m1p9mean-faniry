@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 var User = mongoose.model('User', {
-    nom: { type: String }
-}); ///parametre 'user'
+    "fullName": { type: String },
+    "email": { type: String },
+    "password": { type: String },
+    "argent": { type: String },
+});
 
 module.exports = { User };

@@ -18,16 +18,19 @@ app.use(cors({
 
 
 
-app.post("/test", function(req, res) {
+app.post("/addUser", function(req, res) {
     //console.log(req.body);
-    // res.send(req.body);
+    //res.send(req.body);
     // res.sendFile(__dirname + "/index.html");
 
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
         var dbo = db.db("ekalydb");
         var j = {
-            "nom": req.body.nom
+            fullName: req.body.fullName,
+            email: req.body.email,
+            password: req.body.password,
+            argent: req.body.argent
 
         };
         // var myobj = { name: "Company Inc", address: "Highway 37" };
@@ -66,8 +69,8 @@ app.put("/update", function(req, res) {
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
         var dbo = db.db("ekalydb");
-        var update = { nom: "ministre" };
-        var req = { $set: { nom: "Soupe spécial", qte: "1", prix: "6000" } };
+        var update = { fullName: "ministre" };
+        var req = { $set: { fullName: "Teg", email: "1", password: "123", argent: "3000" } };
         dbo.collection("users").updateOne(update, req, function(err, res) {
             if (err) throw err;
             console.log("name changed");
@@ -105,5 +108,32 @@ app.delete("/deleteAll", function(req, res) {
 });
 
 app.listen(3000, () => console.log('Server start with port : 3000'));
+
+app.post("/addProduct", function(req, res) {
+    //console.log(req.body);
+    //res.send(req.body);
+    // res.sendFile(__dirname + "/index.html");
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        var j = {
+            name: req.body.name,
+            price: req.body.price,
+            sale_price: req.body.sale_price,
+            sales_count: req.body.sales_count,
+            sale_date: req.body.sale_date
+
+        };
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("product").insertOne(j, function(err, res) {
+            if (err) throw err;
+            console.log("1 product inserted");
+            db.close();
+        });
+    });
+
+});
+
 
 app.use('/users', usersController);

@@ -8,7 +8,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import { LoginComponent } from './login/login.component';
 import { InscriptionComponent } from './inscription/inscription/inscription.component';
-
+import { UserComponent } from './user/user.component';
 
 
 const routes: Routes = [
@@ -23,6 +23,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '',  redirectTo: '/inscription', pathMatch: 'full'  },
   { path: 'inscription', component: InscriptionComponent },
+  { path: 'users', redirectTo: '/users', pathMatch: 'full' },
+  { path: 'user/add', component: UserComponent }
 ];
 
 @NgModule({
