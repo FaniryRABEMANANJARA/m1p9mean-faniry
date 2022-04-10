@@ -1,8 +1,8 @@
 export class Product {
-  id?: string;
+  "_id": string;
 	"name": string;
-	"price": string;
-	"sale_price": string;
-	"sales_count": string;
-	"sale_date": string;
+	"prix": string;
+	"prixachat": string;
+	"quantite": string;
+	"date": string;
 }

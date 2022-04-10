@@ -25,7 +25,7 @@ export class ProductEditComponent implements OnInit {
 		this.productService.getProduct('id').subscribe(product => this.product = product);
 	}
 
-	save(): void {
+  save(): void {
 		this.productService.updateProduct(this.product).subscribe(success=> {this.goBack();});
 	}
 

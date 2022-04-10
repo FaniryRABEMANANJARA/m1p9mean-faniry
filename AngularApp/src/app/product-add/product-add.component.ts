@@ -11,7 +11,7 @@ import { ProductService } from '../product/product.service';
 })
 export class ProductAddComponent implements OnInit {
 
-	@Input() product: Product = { name: '', price: '', sale_price: '', sales_count: '', sale_date: '' };
+	@Input() product: Product = { _id:'',name: '', prix: '', prixachat: '', quantite: '', date: '' };
 
 	constructor(private productService: ProductService, private location: Location) { }
 

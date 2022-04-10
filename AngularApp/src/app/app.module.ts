@@ -14,6 +14,11 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { LoginComponent } from './login/login.component';
 import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import { InscriptionComponent } from './inscription/inscription/inscription.component';
+import { PanierComponent } from './panier/panier.component';
+import { LivraisonComponent } from './livraison/livraison.component';
+import { RestoComponent } from './resto/resto.component';
+import { BeneficeComponent } from './benefice/benefice.component';
+import { CommandeComponent } from './commande/commande.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,12 @@ import { InscriptionComponent } from './inscription/inscription/inscription.comp
     ProductDetailComponent,
     LoginComponent,
     PageAccueilComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    PanierComponent,
+    LivraisonComponent,
+    RestoComponent,
+    BeneficeComponent,
+    CommandeComponent
    ],
   imports: [
     BrowserModule,

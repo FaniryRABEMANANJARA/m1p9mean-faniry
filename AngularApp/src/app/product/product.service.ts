@@ -20,12 +20,12 @@ export class ProductService {
 
   /** GET products from the server */
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.productUrl + '/product');
+    return this.http.get<Product[]>(this.productUrl + '/findproduct');
   }
 
   /** GET product by id. Will 404 if id not found */
   getProduct(id: string): Observable<any> {
-    const url = `${this.productUrl}/product/${id}`;
+    const url = `${this.productUrl}/findById/:id`;
     return this.http.get<Product>(url);
   }
 
@@ -37,7 +37,8 @@ export class ProductService {
 
   /** PUT: update the product on the server */
   updateProduct(product: Product): Observable<any> {
-    return this.http.put(this.productUrl + '/product/' + product.id, product, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
+
+    return this.http.put(this.productUrl + '/product/' + product._id, product, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
   }
 
   /** DELETE: delete the product from the server */
@@ -53,7 +54,7 @@ export class ProductService {
 		  responseType: 'text' as 'json'
 		};
 
-		return this.http.delete(this.productUrl + '/product/' + product.id, options);
+		return this.http.delete(this.productUrl + '/product/' + product._id, options);
 	  }
 
 	  return of({});

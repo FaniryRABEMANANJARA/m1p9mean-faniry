@@ -30,13 +30,15 @@ app.post("/addUser", function(req, res) {
             fullName: req.body.fullName,
             email: req.body.email,
             password: req.body.password,
-            argent: req.body.argent
+            argent: req.body.argent,
+            position: req.body.position,
+            telephone: req.body.telephone
 
         };
         // var myobj = { name: "Company Inc", address: "Highway 37" };
         dbo.collection("users").insertOne(j, function(err, res) {
             if (err) throw err;
-            console.log("1 document inserted");
+            console.log("1 user inserted");
             db.close();
         });
     });
@@ -119,10 +121,10 @@ app.post("/addProduct", function(req, res) {
         var dbo = db.db("ekalydb");
         var j = {
             name: req.body.name,
-            price: req.body.price,
-            sale_price: req.body.sale_price,
-            sales_count: req.body.sales_count,
-            sale_date: req.body.sale_date
+            prix: req.body.prix,
+            prixachat: req.body.prixachat,
+            quantite: req.body.quantite,
+            date: req.body.date
 
         };
         // var myobj = { name: "Company Inc", address: "Highway 37" };
@@ -135,5 +137,48 @@ app.post("/addProduct", function(req, res) {
 
 });
 
+
+app.get("/findproduct", function(req, res) {
+    //console.log(req.body);
+    // res.send(req.body);
+    // res.sendFile(__dirname + "/index.html");
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("product").find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            if (err) throw err;
+            console.log(result);
+            res.send(result);
+            db.close();
+        });
+    });
+
+});
+
+
+app.get("/findById", function(req, res) {
+    //console.log(req.body);
+    // res.send(req.body);
+    // res.sendFile(__dirname + "/index.html");
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("product").find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            if (err) throw err;
+            console.log(result);
+            res.send(result);
+            db.close();
+        });
+    });
+
+});
 
 app.use('/users', usersController);

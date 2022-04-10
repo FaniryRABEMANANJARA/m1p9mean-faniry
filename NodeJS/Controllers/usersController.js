@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
         if (!err) { res.send(docs); } else { console.log('Error in Retriving Employees :' + JSON.stringify(err, undefined, 2)); }
     });
 });
-/*
+
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`Tsy misy anio id io ato : ${req.params.id}`);
@@ -23,7 +23,9 @@ router.post('/', (req, res) => {
         fullName: req.body.fullName,
         email: req.body.email,
         password: req.body.password,
-        argent: req.body.argent
+        argent: req.body.argent,
+        position: req.body.position,
+        telephone: req.body.telephone
     });
     user.save((err, doc) => {
         if (!err) { res.send(doc); } else { console.log('not save!!!' + JSON.stringify(err, undefined, 2)); }
