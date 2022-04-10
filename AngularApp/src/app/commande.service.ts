@@ -2,27 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { User } from './user.model';
-
-
+import { Commande } from './commande.model';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-
+export class CommandeService {
   private  baseURL = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
-
-  addUser(user: User) {
-    console.log(user);
-      return this.http.post(this.baseURL + '/addUser', user, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
+ getCommande(): Observable<Commande[]> {
+      return this.http.get<Commande[]>(this.baseURL + '/findcommande');
     }
-    getUsers(): Observable<User[]> {
-      return this.http.get<User[]>(this.baseURL + '/finduser');
-    }
-
 }

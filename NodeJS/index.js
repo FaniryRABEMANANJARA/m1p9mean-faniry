@@ -46,7 +46,7 @@ app.post("/addUser", function(req, res) {
 });
 
 
-
+//apesaina @ service.ts
 app.get("/find", function(req, res) {
     //console.log(req.body);
     // res.send(req.body);
@@ -137,6 +137,29 @@ app.post("/addProduct", function(req, res) {
 
 });
 
+app.delete("/deleteProduct", function(req, res) {
+    //console.log(req.body);
+    //res.send(req.body);
+    // res.sendFile(__dirname + "/index.html");
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        const ObjectId = require('ekalydb').ObjectId;
+        // var dbo = db.db("ekalydb");
+        var name = req.body;
+        var id = name._id;
+        var good_id = new ObjectId(id);
+        var myquery = { _id: good_id };
+        dbo.collection("product").deleteOne(myquery, function(err, obj) {
+            if (err) throw err;
+            console.log("1 product deleted");
+            db.close();
+        });
+    });
+
+});
+
+
 
 app.get("/findproduct", function(req, res) {
     //console.log(req.body);
@@ -150,12 +173,13 @@ app.get("/findproduct", function(req, res) {
         dbo.collection("product").find({}).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
-            if (err) throw err;
-            console.log(result);
             res.send(result);
             db.close();
         });
     });
+
+
+
 
 });
 
@@ -172,13 +196,66 @@ app.get("/findById", function(req, res) {
         dbo.collection("product").find({}).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
+            res.send(result);
+            db.close();
+        });
+    });
+});
+app.delete("/deleteProduct", function(req, res) {
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        const ObjectId = require('mongodb').ObjectId;
+        var name = req.body;
+        var id = name._id;
+        var good_id = new ObjectId(id);
+        var myquery = { _id: good_id };
+        dbo.collection("product").deleteOne(myquery, function(err, obj) {
+            if (err) throw err;
+            console.log("1 product deleted");
+            //   res.send(result);
+            db.close();
+        });
+    });
+
+});
+
+app.get("/finduser", function(req, res) {
+    //console.log(req.body);
+    // res.send(req.body);
+    // res.sendFile(__dirname + "/index.html");
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("users").find({}).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
             res.send(result);
             db.close();
         });
     });
-
 });
+
+
+app.get("/findcommande", function(req, res) {
+    //console.log(req.body);
+    // res.send(req.body);
+    // res.sendFile(__dirname + "/index.html");
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("commande").find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.send(result);
+            db.close();
+        });
+    });
+});
+
 
 app.use('/users', usersController);

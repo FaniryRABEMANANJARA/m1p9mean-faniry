@@ -89,7 +89,7 @@
 
             <ul class="nav navbar-right navbar-top-links">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">
+                    <a routerLink="/" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-log-out fa-fw"></i> Déconnexion <b class="caret"></b>
                     </a>
                 </li>
@@ -114,11 +114,11 @@
                             <a routerLink="/resto"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a routerLink="/products"><i class="fa fa-list fa-fw"></i> Liste Menu</a>
+                            <a routerLink="/products"><i class="fa fa-list fa-fw"></i> Liste des plats</a>
                         </li>
 
                         <li>
-                            <a routerLink="/commande"><i class="fa fa-list fa-fw"></i> Liste Commande</a>
+                            <a routerLink="/commande"><i class="fa fa-list fa-fw"></i> Liste des commandes</a>
                         </li>
                         <li>
                             <a routerLink="/benefice"><i class="fa fa-dashboard fa-fw"></i> Benefice</a>
@@ -162,13 +162,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="odd gradeX">
-                                                <td>Pizza</td>
-                                                <td class="right">10$</td>
-                                                <td class="center">10</td>
-                                                <td class="left">Faniry RABEMANANJARA</td>
-                                                <td class="center">Tsimbazaza</td>
-                                                <td class="center">0340810339</td>
+                                            <tr class="odd gradeX" *ngFor="let commande of commandes">
+                                                <td>{{commande.plat}}</td>
+                                                <td class="right">{{commande.prix}}$</td>
+                                                <td class="center">{{commande.quantite}}</td>
+                                                <td class="left">{{commande.fullName}}</td>
+                                                <td class="center">{{commande.position}}</td>
+                                                <td class="center">{{commande.telephone}}</td>
                                                 <td class="center"><span title="Valider"><button class="btn btn-success btn-sm"><i class="fa fa-check-o fa-lg">Valider</i></button></span></td>
                                             </tr>
                                         </tbody>

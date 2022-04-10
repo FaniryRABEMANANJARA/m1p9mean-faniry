@@ -19,6 +19,8 @@ import { LivraisonComponent } from './livraison/livraison.component';
 import { RestoComponent } from './resto/resto.component';
 import { BeneficeComponent } from './benefice/benefice.component';
 import { CommandeComponent } from './commande/commande.component';
+import { LoginrestoComponent } from './loginresto/loginresto.component';
+import { LoginekalyComponent } from './loginekaly/loginekaly.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { CommandeComponent } from './commande/commande.component';
     LivraisonComponent,
     RestoComponent,
     BeneficeComponent,
-    CommandeComponent
+    CommandeComponent,
+    LoginrestoComponent,
+    LoginekalyComponent
    ],
   imports: [
     BrowserModule,

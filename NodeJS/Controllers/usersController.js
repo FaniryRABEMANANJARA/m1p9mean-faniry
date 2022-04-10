@@ -2,13 +2,13 @@ const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
 var { User } = require('../models/users');
-/*
+
 router.get('/', (req, res) => {
-    User.find((err, docs) => {
+    user.find((err, docs) => {
         if (!err) { res.send(docs); } else { console.log('Error in Retriving Employees :' + JSON.stringify(err, undefined, 2)); }
     });
 });
-
+/*
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`Tsy misy anio id io ato : ${req.params.id}`);
@@ -46,7 +46,7 @@ router.put('/:id', (req, res) => {
         if (!err) { res.send(doc); } else { console.log('Tsy nety le update oh!!!' + JSON.stringify(err, undefined, 2)); }
 
     });
-});
+})
 
 router.delete('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))

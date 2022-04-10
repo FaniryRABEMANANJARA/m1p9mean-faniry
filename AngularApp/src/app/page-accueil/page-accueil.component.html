@@ -177,7 +177,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content">
+                    <div class="tab-content" *ngFor="let product of products">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
                             <div class="row g-4">
                                 <div class="col-lg-6">
@@ -185,8 +185,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/menu-1.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Plancha</span>
-                                                <span class="text-primary">$2</span>
+                                                <span>{{product.name}}</span>
+                                                <span class="text-primary">{{product.prix}}$</span>
                                             </h5>
                                             <span>
                                                 Qté: <input type="number">
@@ -200,10 +200,10 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/menu-2.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken </span>
-                                                <span class="text-primary">$2</span>
+                                                <span>{{product.name}} </span>
+                                                <span class="text-primary">{{product.prix}}$</span>
                                             </h5><span>
-                                              Qté: <input type="number">
+                                              Qté:  <input type="number">
                                           </span>
 
                                             <small class="fst-italic"><button class="btn-success"><i class="fa fa-cart-plus" aria-hidden="true"></i></button></small>
@@ -215,8 +215,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/menu-3.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Pizza</span>
-                                                <span class="text-primary">$2</span>
+                                                <span>{{product.name}} </span>
+                                                <span class="text-primary">{{product.prix}}$</span>
                                             </h5>
                                             <span>
                                               Qté: <input type="number">
@@ -231,8 +231,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/menu-4.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Filet de boeuf</span>
-                                                <span class="text-primary">$2</span>
+                                                <span>{{product.name}} </span>
+                                                <span class="text-primary">{{product.prix}}$</span>
                                             </h5>
                                             <span>
                                               Qté: <input type="number">
@@ -247,7 +247,7 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/menu-5.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Plat no regime</span>
+                                                <span>{{product.name}} </span>
                                                 <span class="text-primary">$2</span>
                                             </h5>
                                             <span>
@@ -263,8 +263,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/menu-6.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken frites</span>
-                                                <span class="text-primary">$2</span>
+                                                <span>{{product.name}} </span>
+                                                <span class="text-primary">{{product.prix}}$</span>
                                             </h5>
                                             <span>
                                               Qté: <input type="number">
@@ -279,8 +279,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/menu-7.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Pizza carbonara</span>
-                                                <span class="text-primary">$2</span>
+                                                <span>{{product.name}} </span>
+                                                <span class="text-primary">{{product.prix}}$</span>
                                             </h5>
                                             <span>
                                               Qté: <input type="number">
@@ -295,8 +295,8 @@
                                         <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/menu-8.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Steack</span>
-                                                <span class="text-primary">$2</span>
+                                                <span>{{product.name}} </span>
+                                                <span class="text-primary">{{product.prix}}$</span>
                                             </h5>
                                             <span>
                                               Qté: <input type="number">

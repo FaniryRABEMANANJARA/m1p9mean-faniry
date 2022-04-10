@@ -14,6 +14,7 @@ import { LivraisonComponent } from './livraison/livraison.component';
 import { RestoComponent } from './resto/resto.component';
 import { CommandeComponent } from './commande/commande.component';
 import { BeneficeComponent } from './benefice/benefice.component';
+import { LoginrestoComponent } from './loginresto/loginresto.component';
 
 
 
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '',  redirectTo: '/inscription', pathMatch: 'full'  },
   { path: 'inscription', component: InscriptionComponent },
+  { path: '',  redirectTo: '/loginresto', pathMatch: 'full'  },
+  { path: 'loginresto', component: LoginrestoComponent },
   { path: '',  redirectTo: '/panier', pathMatch: 'full'  },
   { path: 'panier', component: PanierComponent },
   { path: '',  redirectTo: '/livraison', pathMatch: 'full'  },

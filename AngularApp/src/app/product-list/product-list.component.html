@@ -89,7 +89,7 @@
 
             <ul class="nav navbar-right navbar-top-links">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">
+                    <a routerLink="/loginresto" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-log-out fa-fw"></i> Déconnexion <b class="caret"></b>
                     </a>
                 </li>
@@ -166,11 +166,11 @@
                                         <tbody>
                                             <tr *ngFor="let product of products">
                                                 <td>{{product.name}}</td>
-                                                <td>{{product.prix}}</td>
-                                                <td>{{product.prixachat}}</td>
+                                                <td>{{product.prix}}$</td>
+                                                <td>{{product.prixachat}}$</td>
                                                 <td>{{product.quantite}}</td>
-                                                <td class="center"><span title="Modifier"><button class="btn btn-warning btn-sm" routerLink="/product/{{product._id}}/update"><i class="fa fa-pencil-square-o"></i></button></span></td>
-                                                <td class="center"><span title="Supprimer"><button class="btn btn-danger btn-sm"><i class="fa fa-trash-o fa-lg"></i></button></span></td>
+                                                <td class="center"><span title="Modifier"><button class="btn btn-warning btn-sm" routerLink="/products/{{product._id}}/update"><i class="fa fa-pencil-square-o"></i></button></span></td>
+                                                <td class="center"><span title="Supprimer"><button class="btn btn-danger btn-sm" title="delete product" (click)="delete(product)"><i class="fa fa-trash-o fa-lg"></i></button></span></td>
                                             </tr>
                                         </tbody>
                                     </table>
