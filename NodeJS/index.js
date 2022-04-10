@@ -45,8 +45,31 @@ app.post("/addUser", function(req, res) {
 
 });
 
+app.post("/addLivreur", function(req, res) {
+    //console.log(req.body);
+    //res.send(req.body);
+    // res.sendFile(__dirname + "/index.html");
 
-//apesaina @ service.ts
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        var j = {
+            fullName: req.body.fullName,
+            email: req.body.email,
+            password: req.body.password,
+            restaurant: req.body.restaurants,
+            telephone: req.body.telephone
+
+        };
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("livreur").insertOne(j, function(err, res) {
+            if (err) throw err;
+            console.log("1 livreur inserted");
+            db.close();
+        });
+    });
+
+}); //apesaina @ service.ts
 app.get("/find", function(req, res) {
     //console.log(req.body);
     // res.send(req.body);
@@ -66,6 +89,25 @@ app.get("/find", function(req, res) {
     });
 
 });
+
+app.get("/findLivreur", function(req, res) {
+    //console.log(req.body);
+    // res.send(req.body);
+    // res.sendFile(__dirname + "/index.html");
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("livreur").find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            db.close();
+        });
+    });
+
+});
+
 
 app.put("/update", function(req, res) {
     MongoClient.connect(url, function(err, db) {
@@ -131,6 +173,32 @@ app.post("/addProduct", function(req, res) {
         dbo.collection("product").insertOne(j, function(err, res) {
             if (err) throw err;
             console.log("1 product inserted");
+            db.close();
+        });
+    });
+
+});
+
+app.post("/addLivreur", function(req, res) {
+    //console.log(req.body);
+    //res.send(req.body);
+    // res.sendFile(__dirname + "/index.html");
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        var j = {
+            fullName: req.body.fullName,
+            email: req.body.email,
+            password: req.body.password,
+            telephone: req.body.telephone,
+            restaurant: req.body.restaurant
+
+        };
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("livreur").insertOne(j, function(err, res) {
+            if (err) throw err;
+            console.log("1 livreur inserted");
             db.close();
         });
     });
