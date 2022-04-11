@@ -21,6 +21,7 @@ import { EkalyLivreurComponent } from './ekaly-livreur/ekaly-livreur.component';
 import { EkalyBeneficeComponent } from './ekaly-benefice/ekaly-benefice.component';
 import { AddLivreurComponent } from './livreur/add-livreur/add-livreur.component';
 import { LoginLivreurComponent } from './login-livreur/login-livreur.component';
+import { PageLivreurComponent } from './page-livreur/page-livreur.component';
 
 
 
@@ -62,6 +63,8 @@ const routes: Routes = [
   { path: 'addLivreur', component: AddLivreurComponent },
   { path: '', redirectTo: '/loginlivreur', pathMatch: 'full' },
   { path: 'loginlivreur', component: LoginLivreurComponent },
+  { path: '', redirectTo: '/livreur', pathMatch: 'full' },
+  { path: 'livreur', component: PageLivreurComponent }
 
 
 

@@ -25,6 +25,7 @@ import { PageEkalyComponent } from './page-ekaly/page-ekaly.component';
 import { EkalyBeneficeComponent } from './ekaly-benefice/ekaly-benefice.component';
 import { EkalyLivreurComponent } from './ekaly-livreur/ekaly-livreur.component';
 import { AddLivreurComponent } from './livreur/add-livreur/add-livreur.component';
+import { PageLivreurDashboardComponent } from './page-livreur-dashboard/page-livreur-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AddLivreurComponent } from './livreur/add-livreur/add-livreur.component
     PageEkalyComponent,
     EkalyBeneficeComponent,
     EkalyLivreurComponent,
-    AddLivreurComponent
+    AddLivreurComponent,
+    PageLivreurDashboardComponent
    ],
   imports: [
     BrowserModule,
