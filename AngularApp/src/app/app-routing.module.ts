@@ -20,6 +20,7 @@ import { PageEkalyComponent } from './page-ekaly/page-ekaly.component';
 import { EkalyLivreurComponent } from './ekaly-livreur/ekaly-livreur.component';
 import { EkalyBeneficeComponent } from './ekaly-benefice/ekaly-benefice.component';
 import { AddLivreurComponent } from './livreur/add-livreur/add-livreur.component';
+import { LoginLivreurComponent } from './login-livreur/login-livreur.component';
 
 
 
@@ -58,7 +59,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/ekalybenefice', pathMatch: 'full' },
   { path: 'ekalybenefice', component: EkalyBeneficeComponent },
   { path: '', redirectTo: '/addLivreur', pathMatch: 'full' },
-  { path: 'addLivreur', component: AddLivreurComponent }
+  { path: 'addLivreur', component: AddLivreurComponent },
+  { path: '', redirectTo: '/loginlivreur', pathMatch: 'full' },
+  { path: 'loginlivreur', component: LoginLivreurComponent },
+
 
 
 ];
