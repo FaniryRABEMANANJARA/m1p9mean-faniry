@@ -21,6 +21,10 @@ import { BeneficeComponent } from './benefice/benefice.component';
 import { CommandeComponent } from './commande/commande.component';
 import { LoginrestoComponent } from './loginresto/loginresto.component';
 import { LoginekalyComponent } from './loginekaly/loginekaly.component';
+import { PageEkalyComponent } from './page-ekaly/page-ekaly.component';
+import { EkalyBeneficeComponent } from './ekaly-benefice/ekaly-benefice.component';
+import { EkalyLivreurComponent } from './ekaly-livreur/ekaly-livreur.component';
+import { AddLivreurComponent } from './livreur/add-livreur/add-livreur.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,11 @@ import { LoginekalyComponent } from './loginekaly/loginekaly.component';
     BeneficeComponent,
     CommandeComponent,
     LoginrestoComponent,
-    LoginekalyComponent
+    LoginekalyComponent,
+    PageEkalyComponent,
+    EkalyBeneficeComponent,
+    EkalyLivreurComponent,
+    AddLivreurComponent
    ],
   imports: [
     BrowserModule,

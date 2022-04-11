@@ -15,6 +15,11 @@ import { RestoComponent } from './resto/resto.component';
 import { CommandeComponent } from './commande/commande.component';
 import { BeneficeComponent } from './benefice/benefice.component';
 import { LoginrestoComponent } from './loginresto/loginresto.component';
+import { LoginekalyComponent } from './loginekaly/loginekaly.component';
+import { PageEkalyComponent } from './page-ekaly/page-ekaly.component';
+import { EkalyLivreurComponent } from './ekaly-livreur/ekaly-livreur.component';
+import { EkalyBeneficeComponent } from './ekaly-benefice/ekaly-benefice.component';
+import { AddLivreurComponent } from './livreur/add-livreur/add-livreur.component';
 
 
 
@@ -27,6 +32,8 @@ const routes: Routes = [
   { path: 'inscription', component: InscriptionComponent },
   { path: '',  redirectTo: '/loginresto', pathMatch: 'full'  },
   { path: 'loginresto', component: LoginrestoComponent },
+  { path: '',  redirectTo: '/loginekaly', pathMatch: 'full'  },
+  { path: 'loginekaly', component: LoginekalyComponent },
   { path: '',  redirectTo: '/panier', pathMatch: 'full'  },
   { path: 'panier', component: PanierComponent },
   { path: '',  redirectTo: '/livraison', pathMatch: 'full'  },
@@ -43,7 +50,16 @@ const routes: Routes = [
   { path: '', redirectTo: '/commande', pathMatch: 'full' },
   { path: 'commande', component: CommandeComponent },
   { path: '', redirectTo: '/benefice', pathMatch: 'full' },
-  { path: 'benefice', component: BeneficeComponent }
+  { path: 'benefice', component: BeneficeComponent },
+  { path: '', redirectTo: '/ekaly', pathMatch: 'full' },
+  { path: 'ekaly', component: PageEkalyComponent },
+  { path: '', redirectTo: '/ekalylivreur', pathMatch: 'full' },
+  { path: 'ekalylivreur', component: EkalyLivreurComponent },
+  { path: '', redirectTo: '/ekalybenefice', pathMatch: 'full' },
+  { path: 'ekalybenefice', component: EkalyBeneficeComponent },
+  { path: '', redirectTo: '/addLivreur', pathMatch: 'full' },
+  { path: 'addLivreur', component: AddLivreurComponent }
+
 
 ];
 
