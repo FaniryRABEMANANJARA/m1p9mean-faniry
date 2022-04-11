@@ -4,9 +4,14 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "start": "npm start --prefix e-kaly-server",
-        "build": "npm run --prefix e-kaly-web build"
+       "ng": "ng",
+        "start": "ng serve",
+        "build": "ng build --prod",
+        "test": "ng test",
+        "lint": "ng lint",
+        "e2e": "ng e2e"
     },
+  "private": true,
     "author": "Adrian Mong",
     "license": "ISC",
     "dependencies": {
