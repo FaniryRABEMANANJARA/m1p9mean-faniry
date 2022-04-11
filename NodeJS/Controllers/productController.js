@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`Tsy misy anio id io ato : ${req.params.id}`);
-    product.findById(req.params.id, (err, docs) => {
+    product.finddetail(req.params.id, (err, docs) => {
         if (!err) { res.send(docs); } else { console.log('Tsy tonga ah xD :' + JSON.stringify(err, undefined, 2)); }
 
     });

@@ -21,8 +21,10 @@ export class ProductEditComponent implements OnInit {
 	}
 
 	getProduct(): void {
-		const id = this.route.snapshot.paramMap.get('id');
-		this.productService.getProduct('id').subscribe(product => this.product = product);
+		const id = this.route.snapshot.paramMap.get('id')??'';
+		this.productService.getProduct(id).subscribe(product => {this.product = product[0]
+      console.log(product);
+       });
 	}
 
   save(): void {

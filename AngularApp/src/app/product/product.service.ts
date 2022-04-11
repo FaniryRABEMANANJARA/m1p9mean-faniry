@@ -25,8 +25,10 @@ export class ProductService {
 
   /** GET product by id. Will 404 if id not found */
   getProduct(id: string): Observable<any> {
-    const url = `${this.productUrl}/findById/`;
+    const url = `${this.productUrl}/finddetail/${id}`;
+console.log(id);
     return this.http.get<Product>(url);
+
   }
 
   /** POST: add a new product to the server */
@@ -38,7 +40,7 @@ export class ProductService {
   /** PUT: update the product on the server */
   updateProduct(product: Product): Observable<any> {
 
-    return this.http.put(this.productUrl + '/findByIdAndUpdate/' + product._id, product, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
+    return this.http.post(this.productUrl + '/updateProduct', product, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
   }
 
   /** DELETE: delete the product from the server */
@@ -54,7 +56,7 @@ export class ProductService {
 		  responseType: 'text' as 'json'
 		};
 
-		return this.http.delete(this.productUrl + '/deleteProduct/:' + product._id, options);
+		return this.http.get(this.productUrl + '/deleteProduct/' + product._id, options);
 	  }
 
 	  return of({});

@@ -166,7 +166,8 @@ app.post("/addProduct", function(req, res) {
             prix: req.body.prix,
             prixachat: req.body.prixachat,
             quantite: req.body.quantite,
-            date: req.body.date
+            date: req.body.date,
+            etat: 1
 
         };
         // var myobj = { name: "Company Inc", address: "Highway 37" };
@@ -238,7 +239,8 @@ app.get("/findproduct", function(req, res) {
         if (err) throw err;
         var dbo = db.db("ekalydb");
         // var myobj = { name: "Company Inc", address: "Highway 37" };
-        dbo.collection("product").find({}).toArray(function(err, result) {
+        var query = { etat: 1 };
+        dbo.collection("product").find(query).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
             res.send(result);
@@ -325,5 +327,81 @@ app.get("/findcommande", function(req, res) {
     });
 });
 
+app.get('/finddetail/:id', function(req, res) {
+    //console.log(req.body);
+    // res.send(req.body);
+    // res.sendFile(__dirname + "/index.html");
+
+    const ObjectId = require('mongodb').ObjectId;
+    var id = req.params.id;
+    var good_id = new ObjectId(id);
+    var query = { _id: good_id }
+    console.log(query);
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("product").find(query).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.send(result);
+            db.close();
+        });
+    });
+
+});
+
+
+app.post("/updateProduct", function(req, res) {
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        console.log(req.body);
+        const ObjectId = require('mongodb').ObjectId;
+        var good_id = new ObjectId(req.body._id);
+        var myquery = { _id: good_id };
+        var data2 = {
+            $set: {
+                name: req.body.name,
+                prix: req.body.prix,
+                prixachat: req.body.prixachat,
+                quantite: req.body.quantite,
+                date: req.body.date,
+                etat: 1
+            }
+        };
+
+        console.log(good_id);
+        dbo.collection("product").updateOne(myquery, data2, function(err, res) {
+            if (err) throw err;
+            console.log("1 product updated");
+
+        });
+    });
+});
+
+app.get("/deleteProduct/:id", function(req, res) {
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        console.log(req.body);
+        const ObjectId = require('mongodb').ObjectId;
+        var good_id = new ObjectId(req.params.id);
+        var myquery = { _id: good_id };
+        var data2 = {
+            $set: {
+                etat: 0
+            }
+        };
+
+        console.log(good_id);
+        dbo.collection("product").updateOne(myquery, data2, function(err, res) {
+            if (err) throw err;
+            console.log("1 product delete");
+
+        });
+    });
+});
 
 app.use('/users', usersController);

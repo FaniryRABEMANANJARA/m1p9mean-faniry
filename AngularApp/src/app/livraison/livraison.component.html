@@ -58,7 +58,7 @@
                 </div>
             </nav>
 
-            <div class="container-xxl py-5">
+            <div class="container-xxl py-5" *ngFor="let commande of commandes">
                 <div class="container">
                     <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                         <h5 class="section-title ff-secondary text-center text-primary fw-normal">Livraison</h5>
@@ -70,9 +70,9 @@
                                 <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3" data-bs-toggle="pill" href="#tab-1">
                                     <i class="fa fa-coffee fa-2x text-primary"></i>
                                     <div class="ps-3">
-                                        <h6 class="mt-n1 mb-0">fullName :</h6>
-                                        <h6 class="mt-n1 mb-0">Position :</h6>
-                                        <h6 class="mt-n1 mb-0">Numéro :</h6>
+                                        <h6 class="mt-n1 mb-0">fullName : {{commande.fullName}}</h6>
+                                        <h6 class="mt-n1 mb-0">Position : {{commande.position}}</h6>
+                                        <h6 class="mt-n1 mb-0">Numéro : {{commande.telephone}}</h6>
                                     </div>
                                 </a>
                             </li>
@@ -87,19 +87,19 @@
                                             <div class="w-100 d-flex flex-column text-start ps-4">
                                                 <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                     <span>Plat : </span>
-                                                    <span class="text-primary">plancha</span>
+                                                    <span class="text-primary">{{commande.plat}}</span>
                                                 </h5>
                                                 <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                    <span>Qte : </span>
-                                                    <span class="text-primary"></span>
+                                                    <span>Qte :  </span>
+                                                    <span class="text-primary">{{commande.quantite}}</span>
                                                 </h5>
                                                 <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                     <span>Date :</span>
-                                                    <span class="text-primary"><input type="datetime-local"></span>
+                                                    <span class="text-primary">{{commande.date}}</span>
                                                 </h5>
                                                 <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                    <span>Prix Total :</span>
-                                                    <span class="text-primary">$</span>
+                                                    <span>Prix Total :  </span>
+                                                    <span class="text-primary">{{commande.prix}}$</span>
                                                 </h5>
                                                 <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                     <span>Frais de Transport</span>
