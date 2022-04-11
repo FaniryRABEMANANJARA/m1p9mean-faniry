@@ -21,8 +21,12 @@ export class UserService {
     console.log(user);
       return this.http.post(this.baseURL + '/addUser', user, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
     }
+
     getUsers(): Observable<User[]> {
       return this.http.get<User[]>(this.baseURL + '/finduser');
     }
 
+    login (Object: object) {
+        return this.http.post(this.baseURL + '/login', {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
+      }
 }

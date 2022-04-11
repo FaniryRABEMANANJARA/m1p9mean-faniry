@@ -8,6 +8,16 @@ router.get('/', (req, res) => {
         if (!err) { res.send(docs); } else { console.log('Error in Retriving Employees :' + JSON.stringify(err, undefined, 2)); }
     });
 });
+
+
+
+
+router.post('/login', (req, res) => {
+    user.find((err, docs) => {
+        if (!err) { res.send(docs); } else { console.log('Error in Retriving Employees :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
 /*
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
@@ -25,7 +35,9 @@ router.post('/', (req, res) => {
         password: req.body.password,
         argent: req.body.argent,
         position: req.body.position,
-        telephone: req.body.telephone
+        telephone: req.body.telephone,
+        profile: "client",
+        etat: 1
     });
     user.save((err, doc) => {
         if (!err) { res.send(doc); } else { console.log('not save!!!' + JSON.stringify(err, undefined, 2)); }

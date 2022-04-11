@@ -13,7 +13,7 @@ import { User } from '../shared/user.model';
 })
 export class UserComponent implements OnInit {
 
-	@Input() user: User = { fullName: '', email: '', password: '', argent: '',position:'',telephone:'' };
+	@Input() user: User = { fullName: '', email: '', password: '', argent: '',position:'',telephone:'',profile:'',etat:'' };
 
   constructor(private userService: UserService, private location: Location) { }
 

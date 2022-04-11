@@ -7,6 +7,8 @@ var User = mongoose.model('User', {
     "argent": { type: String },
     "telephone": { type: String },
     "position": { type: String },
+    "etat": { type: String },
+    "profile": { type: String },
 });
 
 module.exports = { User };

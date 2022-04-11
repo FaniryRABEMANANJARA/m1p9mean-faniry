@@ -16,6 +16,45 @@ app.use(cors({
     origin: '*'
 }));
 
+app.post("/login", function(req, res) {
+    //console.log(req.body);
+    //res.send(req.body);
+    // res.sendFile(__dirname + "/index.html");
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("ekalydb");
+        var fullName = req.body
+        var query = { email: fullName.email, etat: 1 };
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("users").find(query).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(res);
+
+            if (result.length > 0) {
+                if (result[0].profile.normalize() === "client") {
+                    var data2 = {
+                        _id: result[0]._id,
+                        profile: "client",
+                    };
+                    res.send(JSON.stringify(data2));
+                } else {
+                    var data2 = {
+                        _id: result[0]._id,
+                        profile: result[0].profile,
+
+                    }
+                    res.send(JSON.stringify(data2));
+                }
+            } else {
+                res.status(404).send("Not connected")
+            }
+            db.close();
+        });
+    });
+
+});
+
 
 
 app.post("/addUser", function(req, res) {

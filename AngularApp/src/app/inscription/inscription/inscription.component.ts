@@ -10,7 +10,7 @@ import { User } from 'src/app/shared/user.model';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
-		@Input() user: User = { fullName: '', email: '', password: '', argent: '',position:'',telephone:'' };
+		@Input() user: User = { fullName: '', email: '', password: '', argent: '',position:'',telephone:'',profile:'',etat:'' };
 
   constructor(private userService: UserService, private location: Location) { }
 

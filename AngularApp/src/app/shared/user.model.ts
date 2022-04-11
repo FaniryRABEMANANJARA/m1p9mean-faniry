@@ -6,4 +6,7 @@ export class User {
   "argent" : string;
   "position" : string;
   "telephone" : string;
+  "profile" : string;
+  "etat" : string;
+
 }
