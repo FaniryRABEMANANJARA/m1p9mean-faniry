@@ -1,34 +1,32 @@
 import { Injectable } from '@angular/core';
-
-import { HttpClient } from '@angular/common/http';
-
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { User } from './user.model';
 
 
-@Injectable()
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
-  "selectedUser": User;
-  "users": User[];
 
-private baseURL = 'http://localhost:3000/';
+  private  baseURL = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
-  postUser(use:User){
-    var base=this.baseURL+"test";
-    console.log(base);
-    return this.http.post(base,use);
-  }
+  addUser(user: User) {
+    console.log(user);
+      return this.http.post(this.baseURL + '/addUser', user, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
+    }
 
-  getUserList(){
-    return this.http.get(this.baseURL);
-  }
+    getUsers(): Observable<User[]> {
+      return this.http.get<User[]>(this.baseURL + '/finduser');
+    }
 
-  putUser(use : User){
-    return this.http.put(this.baseURL+ `/${use._id}`,use);
-  }
-
-  deleteUser(_id:string){
-    return this.http.delete(this.baseURL+ `/${_id}`);
-  }
+    login (Object: object) {
+        return this.http.post(this.baseURL + '/login', {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
+      }
 }

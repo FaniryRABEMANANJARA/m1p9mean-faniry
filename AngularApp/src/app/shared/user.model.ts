@@ -1,4 +1,12 @@
 export class User {
-  "_id": string;
-  "nom" : string;
+  id?: string;
+  "fullName": string;
+  "email": string;
+  "password": string;
+  "argent" : string;
+  "position" : string;
+  "telephone" : string;
+  "profile" : string;
+  "etat" : string;
+
 }

@@ -76,49 +76,49 @@
                 <div class="card-content white-text">
                     <div class="row">
                         <div class="col s5">
-                            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input type="text" name="nom" #name="ngModel" [(ngModel)]="userService.selectedUser.nom" placeholder="" required>
-                                        <label>Nom :
+                            <input type="hidden" [(ngModel)]="user.id">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="text" [(ngModel)]="user.fullName" required>
+                                    <label>fullName :
                       <label class="red-text">*</label>
-                                        </label>
-                                    </div>
+                                    </label>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <button class="btn btn-custom right" type="button" (click)="resetForm(userForm)">Reset</button>
-                                        <button class="btn btn-custom right" type="submit" [disabled]="!userForm.onSubmit">Submit</button>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="email" [(ngModel)]="user.email">
+                                    <label>email :
+                    <label class="red-text">*</label>
+                                    </label>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="col s7">
-                            <table class="responsive-table highlight">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tr *ngFor="let use of userService.users">
-                                    <td>{{use.nom}}</td>
-                                    <td>
-                                        <a class="action-btn" (click)="onEdit(use)">
-                                            <i class="material-icons">edit</i>
-                                        </a>
-                                        <a class="action-btn" (click)="onDelete(use._id,userForm)">
-                                            <i class="material-icons">delete</i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="password" [(ngModel)]="user.password">
+                                    <label>password :
+                  <label class="red-text">*</label>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="number" [(ngModel)]="user.argent">
+                                    <label>argent :
+                <label class="red-text">*</label>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <button class="btn btn-custom right" (click)="save()">Submit</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
     <!--JavaScript at end of body for optimized loading-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
@@ -126,4 +126,3 @@
 </body>
 
 </html>
-<router-outlet></router-outlet>
