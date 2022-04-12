@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class ProductService {
 
-  private productUrl = 'http://localhost:3000';  // Base URL to REST API
+  private productUrl = 'https://porjectnode.herokuapp.com';  // Base URL to REST API
 
   constructor(private http: HttpClient) { }
 
