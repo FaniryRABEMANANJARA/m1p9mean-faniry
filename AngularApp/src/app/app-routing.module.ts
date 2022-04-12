@@ -63,8 +63,8 @@ const routes: Routes = [
   { path: 'addLivreur', component: AddLivreurComponent },
   { path: '', redirectTo: '/loginlivreur', pathMatch: 'full' },
   { path: 'loginlivreur', component: LoginLivreurComponent },
-  { path: '', redirectTo: '/livreur', pathMatch: 'full' },
-  { path: 'livreur', component: PageLivreurComponent }
+  { path: '', redirectTo: '/livreurs', pathMatch: 'full' },
+  { path: 'livreurs', component: PageLivreurComponent }
 
 
 
